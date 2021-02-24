@@ -1,15 +1,18 @@
-version: '3'
+version: '3.8'
 
 services: 
   go-backend:
 #    build: ./go
-    image: intento
+    image: go
 #    volumes: 
 #      - ./product:/usr/src/app
     ports:
      - "4000:4000"
+    environment:
+      - VUE_APP_API_ENDPOINT="http://10.0.0.8:4001/api"
+    
   vue-frontend:
-    image: intento2
+    image: vue
 #    build: 
 #    volumes: 
 #      - ./asdjfhk
@@ -17,7 +20,5 @@ services:
       - "4001:4001"
     depends_on: 
       - go-backend
-web:
-  environment:
-    - PORT=4001
-
+    environment:
+      - VUE_APP_API_ENDPOINT="http://10.0.0.8:4001/api"

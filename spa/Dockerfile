@@ -5,12 +5,12 @@ RUN npm config set user 0
 RUN npm config set unsafe-perm true
 # lo del clone
 # RUN git clone https://github.com/jdmendozaa/vuego-demoapp.git
-COPY . /spa
+COPY . /src
 
 RUN pwd && ls
 
 # Go to the directory in which the .go file is
-WORKDIR ./spa
+WORKDIR /src
 
 # Install the dependencies of the project
 RUN npm install

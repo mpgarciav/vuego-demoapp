@@ -25,13 +25,13 @@ RUN npm install @vue/cli-service -g
 RUN apt-get -y install git
 
 # Clone the repository
-RUN pwd && ls
-COPY . /server
+RUN echo "----------------------------------" && ls && pwd 
+COPY . /src
 RUN pwd && ls
 # RUN git clone https://github.com/jdmendozaa/vuego-demoapp.git
 
 # Go to the directory in which the .go file is
-WORKDIR ./server
+WORKDIR /src
 # Build the app
 RUN echo "halp" && ls
 RUN go build 
