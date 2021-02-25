@@ -2,23 +2,15 @@ version: '3.8'
 
 services: 
   go-backend:
-#    build: ./go
     image: go
-#    volumes: 
-#      - ./product:/usr/src/app
     ports:
-     - "4000:4000"
-    environment:
-      - VUE_APP_API_ENDPOINT="http://10.0.0.8:4001/api"
+     - "4001:4001"    
     
   vue-frontend:
     image: vue
-#    build: 
-#    volumes: 
-#      - ./asdjfhk
     ports:
-      - "4001:4001"
+      - "4000:80"
     depends_on: 
       - go-backend
     environment:
-      - VUE_APP_API_ENDPOINT="http://10.0.0.8:4001/api"
+      - VUE_APP_API_ENDPOINT=http://go-backend:4001/api
