@@ -2,12 +2,12 @@ version: '3.8'
 
 services: 
   go-backend:
-    image: go
+    image: mpgarciav/vuego-demoapp:backend
     ports:
      - "4001:4001"    
     
   vue-frontend:
-    image: vue
+    image: mpgarciav/vuego-demoapp:frontend
     ports:
       - "4000:80"
     depends_on: 
